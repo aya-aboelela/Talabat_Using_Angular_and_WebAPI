@@ -1,0 +1,67 @@
+<div class="container">
+  <button class="btn btn-success m-3 float-end" (click)="openCategoryModal()">Add New Category</button>
+  <table class="table table-hover mt-5">
+    <thead>
+      <tr>
+        <th scope="col">Category ID</th>
+        <th scope="col">Category Name</th>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let category of ResturentCategorys; index as i">
+        <td>{{category.id}}</td>
+        <td>{{category.catergoryName}}</td>
+        <td><button class="btn btn-danger" (click)="deleteCategory(category.resturentCategoryID,i)">Delete</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+
+
+<div class="modal" id="exampleModal" [ngStyle]="{'display':display}" tabindex="-1" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+
+  <div class="modal-dialog">
+
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" aria-label="Close" (click)="onCloseCategoryHandled()"><span
+            aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" style="font-size: initial;">Add New Category </h4>
+      </div>
+      <div class="modal-body">
+
+        <div class="row">
+            <div class="col-6">
+
+
+              <div class="form-group d-flex">
+                <div class="mb-3" style="width:150px">
+                  <label for="" class="form-label">Category</label>
+                  <select class="form-select form-select-lg" (change)="getSelectedCategoryID($event)">
+                    <option *ngFor="let category of DefferentCategories" value={{category.id}} >{{category.catergoryName}} {{category.id}}</option>
+                  </select>
+                </div>
+                <div class="mb-3 mt-5 ms-5 ">
+                <input type="button" class="btn btn-success" (click)="AddTocategoriesIDs()" value="Add">
+              </div>
+              </div>
+            </div>
+
+
+          </div>
+
+
+          <div class="modal-footer">
+            <input type="button" (click)="SubmitData()" id="update" class="btn btn-success" value="SUBMIT">
+          </div>
+      </div>
+
+
+
+
+    </div>
+  </div>

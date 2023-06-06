@@ -1,0 +1,32 @@
+<div class="w-100 mx-auto py-1">
+  <mat-tab-group>
+    <mat-tab >
+      <ng-template mat-tab-label>
+         Account Info
+      </ng-template>
+      <app-profile></app-profile>
+    </mat-tab>
+
+    
+    <mat-tab style="font-size: 26px;">
+      <ng-template mat-tab-label >
+        Cities
+      </ng-template>
+      <app-allbranches></app-allbranches>
+    </mat-tab>
+
+    <mat-tab>
+      <ng-template mat-tab-label>
+      Category
+      </ng-template>
+      <app-allcategory></app-allcategory>
+    </mat-tab>
+
+    <mat-tab style="font-size: 26px;">
+      <ng-template mat-tab-label >
+        Product
+      </ng-template>
+      <app-add-new-product></app-add-new-product>
+    </mat-tab>
+  </mat-tab-group>
+</div>

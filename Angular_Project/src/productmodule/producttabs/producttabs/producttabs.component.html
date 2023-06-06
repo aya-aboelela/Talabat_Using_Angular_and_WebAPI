@@ -1,0 +1,31 @@
+<div class="w-100 mx-auto py-1">
+  <mat-tab-group>
+    <mat-tab >
+      <ng-template mat-tab-label>
+        <img src="./assets/icon/menu.svg" alt="" style="Width:30px;padding-right:10px">
+           Menu
+      </ng-template>
+      <app-scrollspy></app-scrollspy>
+     <!-- <app-categories></app-categories> -->
+    </mat-tab>
+
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <img src="./assets/icon/reviews.svg" alt="" style="Width:30px;padding-right:10px">
+        Reviews
+      </ng-template>
+      <app-review></app-review>
+      <!-- <app-cart></app-cart> -->
+      <!-- <app-scrollspy></app-scrollspy> -->
+    <!-- review Component -->
+    </mat-tab>
+
+    <mat-tab style="font-size: 26px;">
+      <ng-template mat-tab-label >
+        <img src="./assets/icon/infomenu.svg" alt="" style="Width:30px;padding-right:10px">
+        Info
+      </ng-template>
+ <app-info-resturant></app-info-resturant>
+    </mat-tab>
+  </mat-tab-group>
+</div>

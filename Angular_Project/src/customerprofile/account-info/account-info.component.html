@@ -1,0 +1,133 @@
+<div class="col-lg-8">
+  <div class="card mb-4">
+    <form [formGroup]="CustomerInfoForm" (ngSubmit)="SubmitData()">
+      <div class="card-body CLOSE">
+        <div class="row">
+          <div class="col-sm-3">
+            <p class="mb-0">Email</p>
+          </div>
+          <div class="col-sm-9">
+            <input class="form-control" [class.is-invalid]="email?.invalid &&email?.touched" [value]="email.value"
+              formControlName="email" type="email" formControlName="email">
+            <div *ngIf="email?.errors &&email?.touched">
+              <small *ngIf="email?.errors?.['required']" class="text-danger">User Name is required</small>
+              <small class="text-danger"
+                *ngIf="email?.errors?.['forbiddenEmail']">{{email?.errors?.['forbiddenEmail'].value}} is not
+                allowed</small>
+            </div>
+            <!-- <span>
+              <a (click)="openEmailModal()" class="changeEmail">Change Email</a>
+            </span> -->
+            <!-- <div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':display}">
+                    <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                    <button type="button" class="close" aria-label="Close"
+                        (click)="onCloseEmailHandled()"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" style="font-size: initial;">Change Email </h4>
+                    </div>
+                    <div class="modal-body">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-xs-12">
+
+                                <form>
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <p> Current Email</p>
+                                        </div>
+                                        <div class="col-sm-9">
+                                            <input class="form-control" type="email" value={{CustomerInfo.email}}>
+                                        </div>
+                                    </div>
+
+                                    <div class="row mt-3">
+                                        <div class="col-sm-3">
+                                            <p> New Email</p>
+                                        </div>
+                                        <div class="col-sm-9">
+                                            <input class="form-control" type="email" value=''>
+                                        </div>
+                                    </div>
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="modal-footer">
+                    <button type="submit" class="btn" id="update"
+                        (click)="onCloseEmailHandled()">SUBMIT</button>
+                    </div>
+                    </div>
+                    </div>
+                </div> -->
+          </div>
+        </div>
+
+        <hr>
+        <div class="row">
+          <div class="col-sm-3">
+            <p class="mb-0">First Name</p>
+          </div>
+          <div class="col-sm-9">
+            <input class="form-control" type="text" [class.is-invalid]="customerFirstName?.invalid &&customerFirstName?.touched"
+              formControlName="customerFirstName" [value]="customerFirstName.value">
+            <div *ngIf="customerFirstName?.errors &&customerFirstName?.touched">
+              <small *ngIf="customerFirstName?.errors?.['required']" class="text-danger">First Name is required</small>
+            </div>
+          </div>
+        </div>
+
+        <hr>
+        <div class="row">
+          <div class="col-sm-3">
+            <p class="mb-0">Last Name</p>
+          </div>
+          <div class="col-sm-9">
+            <input class="form-control" type="text" formControlName="customerLastName"
+              [class.is-invalid]="customerLastName?.invalid &&customerLastName?.touched" [value]="customerLastName.value">
+            <div *ngIf="customerLastName?.errors &&customerLastName?.touched">
+              <small *ngIf="customerLastName?.errors?.['required']" class="text-danger">Last Name is required</small>
+            </div>
+          </div>
+        </div>
+
+        <hr>
+        <div class="row">
+          <div class="col-sm-3">
+            <p class="mb-0">Gender</p>
+          </div>
+          <div class="col-sm-9">
+            <input class="form-control" type="text" formControlName="gender"
+              [class.is-invalid]="gender?.invalid &&gender?.touched" [value]="gender.value">
+            <div *ngIf="gender?.errors &&gender?.touched">
+              <small *ngIf="gender?.errors?.['required']" class="text-danger">Gender is required</small>
+            </div>
+          </div>
+        </div>
+
+        <hr>
+        <div class="row">
+          <div class="col-sm-3">
+
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" />
+              <label class="form-check-label" style="font-size: 12px;">Subscribe to our
+                Newsletter</label>
+            </div>
+
+            <div class="form-check wrapper">
+              <input class="form-check-input" type="checkbox" />
+              <label class="form-check-label" style="font-size: 12px;">Subscribe to
+                SMS</label>
+              <button type="submit" class="btn btn-outline-light" style="margin-left: 21rem;" id="update">Submit</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+
+  </div>
+</div>

@@ -1,0 +1,81 @@
+<div class="w-75 mx-auto py-5">
+    <h1>AddProductForm</h1>
+    <form  [formGroup]="AddProductForm" novalidate (ngSubmit)="AddProduct()">
+        <div class="form-group">
+            <label>Name:</label>
+            <br>
+            <input type="text" [class.is-invalid]="AddProductForm.get('Name')?.invalid&&AddProductForm.get('Name')?.touched" formControlName="Name" class="form-control">
+            
+            <div *ngIf="AddProductForm.get('Name')?.errors !=null && AddProductForm.get('Name')?.touched"
+             class="alert alert-danger mt-1" >
+                <p *ngIf="AddProductForm.get('Name')?.errors?.['required']">This field is required</p>
+                <!-- <small *ngIf="AddProductForm.get('Name')?.errors?.['maxLength']">This field is maxLength is 20</small>
+                <small *ngIf="AddProductForm.get('Name')?.errors?.['minLength']">This field is minLength is 3</small>
+                <small *ngIf="AddProductForm.get('Name')?.errors?.['firstnamevalidation']">Admin is not allowed </small> -->
+        
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Description:</label>
+            <br>
+            <input type="text" [class.is-invalid]="AddProductForm.get('Description')?.invalid&&AddProductForm.get('Description')?.touched" formControlName="Description" class="form-control">
+            
+            <div *ngIf="AddProductForm.get('Description')?.errors !=null && AddProductForm.get('Description')?.touched"
+             class="alert alert-danger mt-1" >
+                <p *ngIf="AddProductForm.get('Description')?.errors?.['required']">This field is required</p>
+                <!-- <small *ngIf="AddProductForm.get('Name')?.errors?.['maxLength']">This field is maxLength is 20</small>
+                <small *ngIf="AddProductForm.get('Name')?.errors?.['minLength']">This field is minLength is 3</small>
+                <small *ngIf="AddProductForm.get('Name')?.errors?.['firstnamevalidation']">Admin is not allowed </small> -->
+        
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-label" for="form3Example4c">Image</label>
+            <input accept="image/*" (change)="showPreview($event)"  class="form-control" type="file" />
+        </div>
+        <div class="form-group">
+            <label>Price:</label>
+            <br>
+            <input type="number" [class.is-invalid]="AddProductForm.get('Price')?.invalid&&AddProductForm.get('Price')?.touched" formControlName="Price" class="form-control">
+            
+            <div *ngIf="AddProductForm.get('Price')?.errors !=null && AddProductForm.get('Price')?.touched"
+             class="alert alert-danger mt-1" >
+                <p *ngIf="AddProductForm.get('Price')?.errors?.['required']">This field is required</p>
+                <!-- <small *ngIf="AddProductForm.get('Name')?.errors?.['maxLength']">This field is maxLength is 20</small>
+                <small *ngIf="AddProductForm.get('Name')?.errors?.['minLength']">This field is minLength is 3</small>
+                <small *ngIf="AddProductForm.get('Name')?.errors?.['firstnamevalidation']">Admin is not allowed </small> -->
+        
+            </div>
+        </div>
+
+
+        <!-- <div>
+        <input type="checkbox" formControlName="isDeleted"   class="form-check-input" (click)="setProductvalidation()">
+        <label class="form-check-label">isDeleted</label>
+        </div> -->
+        <!-- <div class="form-group">
+            <div class="mb-3" >
+                <label for="" class="form-label">Resturant</label>
+                <select class="form-select form-select-lg" formControlName="ResturantID"   name="Restname" [(ngModel)]="selectedRestId" id="Restid"> 
+                    <option *ngFor="let item of RestaurantList" (click)="getRestID(selectedRestId)"  [value]="item.id">{{item.applicationUser.userName}}</option>
+                </select>
+                
+            </div>
+        </div> -->
+
+        <!-- {{selectedRestId}} -->
+
+        <div class="form-group">
+            <div class="mb-3" >
+                <label for="" class="form-label">Category</label>
+                <select class="form-select form-select-lg" formControlName="CategoryID"   name="Catname" id="Catid"> 
+                    <!-- <option value="0">choose the CategoryName Please</option> -->
+                    <option *ngFor="let item of categoryListofResturant"   [value]="item.id">{{item.catergoryName}}</option>
+                  
+                </select>
+                
+            </div>
+        </div>
+        <button class="btn btn-success" [disabled]="AddProductForm.invalid" type="submit" >ADDProduct</button>
+    </form>
+</div>

@@ -1,0 +1,51 @@
+<div class="container">
+    <div class="row">
+      <div class="col-md-3">
+  <div id="list-example" mdbScrollspyElement="scrollspy" id="{{item.id}}"  mdbScrollspy="scrollspy"  class="list-group" *ngFor="let item of ProductList.categoryList">
+    <a class="list-group-item list-group-item-action"    data-bs-toggle="tooltip" data-bs-placement="right" title="{{item.catergoryName}}">{{item.catergoryName}}</a>
+  </div>
+</div>
+<div class="col-md-6">
+  <app-search (searchchangedvalue)="onsearchTextEntered($event)"></app-search>
+    <div class="accordion accordion-flush" id="accordionFlushExample">
+      <div class="accordion-item" *ngFor="let item of ProductList.categoryList" >
+        <h2 class="accordion-header" id="flush-headingOne"  >
+          <button class="accordion-button"  mdbScrollspyElement="scrollspy" id="{{item.id}}"  type="button" data-bs-toggle="collapse"  data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+    {{item.catergoryName}}
+          </button>
+        </h2>
+        <div id="collapseOne"  class="accordion show"   *ngFor="let val of item.productlist"  aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+          <div class="card mb-3" style="max-width: 540px;"  *ngIf="searchtext === '' || val.name.toLowerCase().includes(searchtext)" >
+            <div class="row g-0" >
+              <div class="col-md-3" >
+                <img src='http://localhost:59638/Files/ProductIMG/{{val.image}}'  data-bs-toggle="tooltip" data-bs-placement="top" title="Tooltip on top"class="img-fluid rounded-start" alt="...">
+              </div>
+              <div class="col-md-9">
+                <div class="card-body" style="padding-inline: 2px;">
+                  <h3 class="card-title" id="{{val.id}}" >
+                    {{val.name}}
+                    
+                 
+                    &nbsp;<span class="badge badge-pill" >
+                      {{val.price}} EGP
+                    </span></h3>
+                  <p class="card-text"><small class="text-muted">
+                    {{val.description}}
+                    .</small></p>
+                  <button type="button" class="btn btn-success btn-circle"  id="val.id" name="ProductList.applicationUser" (click)="addtocart(val.id)"><i class="fa-solid fa-plus"></i></button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3" style="padding-left: 0px;">
+    <app-cart [ResturentId]="Resid"></app-cart>
+  </div>
+</div>
+
+
+</div>

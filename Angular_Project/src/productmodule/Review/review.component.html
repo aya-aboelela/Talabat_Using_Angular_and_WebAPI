@@ -1,0 +1,23 @@
+<!-- <div id="CreateReviewSignalR" class="container" ></div> -->
+<div class="container" *ngFor="let rl of reviewList|slice:0:counter;index as i">
+  <!--[ngStyle]="{'display': display}"  -->
+<div class="row" >
+    <!-- [ngClass]="{'limitTextHeight': isReadMore}" -->
+    <div class="col-2">
+      <div id="textCol"><label>{{rl.text}}</label></div>
+    </div>
+    <div class="col-2" id="nameCol">
+      <label>{{rl.customer.firstName}} {{rl.customer.lastName}}</label>
+    </div>
+    <div id="dateCol" class="col-8">
+      <label>{{rl.date|date:'dd MMMM yyy'}}</label>
+    </div>
+  </div>
+</div>
+<button type="button" id="btnReadMore" (click)="showMore()" class="btn btn-light btn-lg btn-block">Show more</button>
+
+<br>
+<form class="form-group" style="display:flex"  [formGroup]="review" (ngSubmit)="sendReview()">
+<input class="form-control"  type="text"  formControlName="mytext"  [(ngModel)]="reviewAdded.text" placeholder="Enter your comment" />
+<button type="submit" class="btn btn-success" id="sendBtn">Send</button>
+</form>

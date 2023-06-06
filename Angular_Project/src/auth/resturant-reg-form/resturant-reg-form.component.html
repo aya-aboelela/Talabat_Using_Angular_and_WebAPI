@@ -1,0 +1,120 @@
+<section class="vh-100 ">
+  <div class="container h-100 ">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-lg-12 col-xl-11">
+        <div class="card text-black" style="border-radius: 25px;">
+          <div class="card-body p-md-5">
+            <div class="row justify-content-center">
+              <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+
+                <h1 class="text-center fw-600 mb-5 mt-4">Create an Account</h1>
+
+                <form class="mx-1 mx-md-4" [formGroup]="registerationForm" novalidate (ngSubmit)="submitData()">
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <div class="form-outline flex-fill mb-0 form-group">
+                      <label class="form-label" for="form3Example1c">User Name</label>
+                      <input [class.is-invalid]="userName?.invalid &&userName?.touched" formControlName="userName"
+                        type="text" class="form-control" />
+                      <div *ngIf="userName?.errors &&userName?.touched">
+                        <small *ngIf="userName?.errors?.['required']" class="text-danger">User Name is required</small>
+                        <small class="text-danger"
+                          *ngIf="userName?.errors?.['forbiddenName']">{{userName?.errors?.['forbiddenName'].value}} is
+                          not allowed</small>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <div class="form-outline flex-fill mb-0 form-group">
+                      <label class="form-label" for="form3Example3c">Your Email</label>
+                      <input [class.is-invalid]="email?.invalid &&email?.touched" formControlName="email" type="email"
+                        class="form-control" />
+                      <div *ngIf="email?.errors &&email?.touched">
+                        <small *ngIf="email?.errors?.['required']" class="text-danger">User Name is required</small>
+                        <small class="text-danger"
+                          *ngIf="email?.errors?.['forbiddenEmail']">{{email?.errors?.['forbiddenEmail'].value}} is not
+                          allowed</small>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <div class="form-outline flex-fill mb-0 form-group">
+                      <label class="form-label" for="form3Example4c">Password</label>
+                      <input [class.is-invalid]="password?.invalid &&password?.touched" formControlName="password"
+                        type="password" class="form-control" />
+                      <small class="text-danger" *ngIf="password?.invalid &&password?.touched">password is
+                        required</small>
+                    </div>
+                  </div>
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <div class="form-outline flex-fill mb-0 form-group">
+                      <label class="form-label" for="form3Example4cd">Repeat your password</label>
+                      <input formControlName="confirmPassword" type="password" class="form-control" />
+                      <small class="text-danger" *ngIf="confirmPassword?.invalid &&confirmPassword?.touched">password is
+                        required</small>
+                      <small class="text-danger" *ngIf="registerationForm.errors?.['misMatch']">Password and confirm
+                        password not match</small>
+                    </div>
+                  </div>
+
+
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <div class="form-outline flex-fill mb-0 form-group">
+                      <label class="form-label" for="form3Example4c">Minimum Order Ammount</label>
+                      <input [class.is-invalid]="MinOrderAmmount?.invalid &&MinOrderAmmount?.touched"
+                        formControlName="MinOrderAmmount" type="number" class="form-control" />
+                      <small class="text-danger" *ngIf="MinOrderAmmount?.invalid &&MinOrderAmmount?.touched">Minimum
+                        Order Ammount is required</small>
+                    </div>
+                  </div>
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <div class="form-outline flex-fill mb-0 form-group">
+                      <label class="form-label" for="form3Example4c">Working Hours</label>
+                      <input [class.is-invalid]="WorkingHours?.invalid &&WorkingHours?.touched"
+                        formControlName="WorkingHours" type="text" class="form-control" />
+                      <small class="text-danger" *ngIf="WorkingHours?.invalid &&WorkingHours?.touched">Working Hours is
+                        required</small>
+                    </div>
+                  </div>
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <div class="form-outline flex-fill mb-0 form-group">
+                      <label class="form-label" for="form3Example4c">Image</label>
+                      <input accept="image/*" (change)="showPreview($event)" class="form-control" type="file" />
+                      <!--[class.is-invalid]="ImageNameFile?.invalid &&ImageNameFile?.touched" -->
+                      <!-- <small class="text-danger" *ngIf="ImageNameFile?.invalid &&ImageNameFile?.touched">Image is required</small> -->
+                    </div>
+                  </div>
+
+
+
+                  <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                    <button type="submit" class="btn submitbtn btn-lg">Create your account</button>
+                  </div>
+
+                </form>
+                <p class="py-4 text-center">
+                  <b class="h5">Already have an account?
+                    <a class="primary-text" routerLink="/auth/ResturantLogin">Login</a>
+                  </b>
+                </p>
+
+              </div>
+              <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
+
+                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp"
+                  class="img-fluid" alt="Sample image">
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,30 @@
+.btn-secondary {
+    background-color: rgb(0, 165, 60);
+    color: rgb(255, 255, 255);
+    border: none;
+  }
+  .btn {
+    box-shadow: none;
+    font-size: 14px;
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    vertical-align: middle;
+    touch-action: manipulation;
+    cursor: pointer;
+    border: 1px solid transparent;
+    white-space: nowrap;
+    padding: 6px 12px;
+    line-height: 1.42857;
+    border-radius: 4px;
+  }
+  .empty{
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+  }
+  .py-5 {
+    padding-top: 0rem !important;
+    padding-bottom: 3rem !important;
+  }

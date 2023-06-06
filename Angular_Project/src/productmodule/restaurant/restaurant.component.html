@@ -1,0 +1,57 @@
+
+
+<div class="container restaurant-container">
+  <div class="container">
+
+<div class="row cards-container" >
+
+    <div class="header-container mt-5 mb-4 ">
+      <h1 class="my-6 px-3 py-2 f-22">All Restaurant</h1>
+    </div>
+  <div class="mb-4">
+    <form class="form-inline d-flex justify-content-center md-form form-sm active-cyan active-cyan-2 mt-2">
+      <i class="fas fa-search" aria-hidden="true"></i>
+      <input class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Search"
+        aria-label="Search">
+    </form>
+  </div>
+
+<div class="col-sm-6 col-md-6 col-lg-6" *ngFor="let res of RestaurantList" >
+  <div class="food-card food-card--vertical" >
+      <div class="food-card_img">
+          <img src='http://localhost:59638/Files/ResturantIMG/{{res.image}}' alt="">  
+          <a href="#!"><i class="fa fa-heart"></i></a>
+      </div>
+      <div class="food-card_content">
+          <div class="food-card_title-section">
+              <a href="#!" class="food-card_title">{{res.applicationUser.userName}}</a>
+              <a href="#!" class="food-card_author">{{res.workingHours}}</a>
+          </div>
+          <div class="food-card_bottom-section">
+              <div class="space-between">
+                  <div>
+                      <span class="fa fa-fire"></span>
+                  </div>
+                  <div><button (click)="showMenu(res.id)"> Menu</button></div>
+                  <div class="pull-right">
+                      <span class="badge badge-success"></span>
+                  </div>
+              </div>
+              <hr>
+              <div class="space-between">
+                  <div class="food-card_price">
+                      <span>{{res.resturantCities.delivaryTime}}</span>
+                  </div>
+                  <div class="food-card_order-count">
+
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+</div>
+</div>
+
+</div>
+

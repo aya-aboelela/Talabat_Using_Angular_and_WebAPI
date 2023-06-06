@@ -1,0 +1,83 @@
+
+
+<div class="container restaurant-container">
+  <div class="container">
+    <h1 class="pt-3 pb-2">All Orders</h1>
+<div>
+<div class="mb-2" *ngFor="let order of OrderList">
+  <div class="d-flex justify-content-between">
+    <div class="d-flex">
+      <div>
+        <img src="http://localhost:59638/Files/ResturantIMG/{{order.restaurantImage}}" width="140px" height="140px">
+       </div>
+       <div class="ms-4">
+        <h3>{{order.restaurantName}}</h3>
+        <p>{{order.date|date:'dd MMMM YYYY'}}</p>
+        <p style="color: green;">{{order.state}}</p>
+    </div>
+
+
+  </div>
+  <div>
+    <button (click)="openEmailModal(order.orderId)" type="button" class="btn btn-success mt-4">Show Details</button>
+  </div>
+
+</div>
+<hr>
+<div class="modal" id="exampleModal" [ngStyle]="{'display':display}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+          <button type="button" class="close" aria-label="Close"
+              (click)="onCloseEmailHandled()"><span
+                  aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" style="font-size: initial;">Show Details </h4>
+          </div>
+      <div class="modal-body">
+          <div class="mb-3">
+              <h2>Order Details</h2>
+            </div>
+            <div>
+              <table class="table table-borderless">
+                <thead style="background-color:#fafafa ;">
+                  <tr >
+                    <th>Item(s)</th>
+                    <th>Special Request</th>
+                    <th>QTY</th>
+                    <th>Price</th>
+                    <th>Total</th>
+                  </tr>
+                </thead>
+                <tbody >
+
+                  <tr *ngFor="let item of OrderDetails">
+                  <td>{{item.productName}}</td>
+                  <td> Add special request</td>
+                  <td>{{item.quantity}}</td>
+                  <td>EGP {{item.price}}</td>
+                  <td>EGP {{item.totalPrice}}</td>
+                  </tr>
+                </tbody>
+              </table>
+              <hr>
+             
+              </div>
+
+
+
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+
+<!-- ############################################################################33333 -->
+
+

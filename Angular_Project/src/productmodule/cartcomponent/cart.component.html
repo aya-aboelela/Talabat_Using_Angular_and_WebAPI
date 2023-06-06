@@ -1,0 +1,91 @@
+<section class="h-100 h-custom">
+  <div class="container py-5 h-100">
+    <div class="row d-flex h-100">
+      <div class="col">
+        <!-- whitesmoke -->
+        <div class="card-body" style="width:174%;background-color: whitesmoke;">
+          <h2 style="background-color: #ff5a00;padding:6px;color:white">Your Cart</h2>
+          <br>
+          <div class="sc-716ff667-0 bZSXEN" *ngIf="ShowProduct.length==0">
+            <div data-test="empty-cart" class="d-flex flex-column align-items-center empty pa-3">
+              <img src="./assets/icon/empty-cart.svg" alt="smile" width="80">
+              <p class="pt-3 f-14">
+                <b>There are no items in your cart</b>
+              </p>
+            </div>
+          </div>
+
+          <div class="container">
+            <div class="row" *ngFor="let item of ShowProduct,index as i">
+              <hr width=100%>
+              <div class="col-md-4">
+                <div class="d-flex" style="justify-content:space-between;">
+                  <div>
+                    <input name="quantity" type="button" value="-" (click)="Decrease(item.productID,QuantityInput,item)"
+                      style="border: 1px solid black;max-width: 30px;text-align: center;color: #ff5a00;cursor: pointer;" />
+                    <label style="color: #fafafa"></label>
+                    <!-- (click)="calcQuantityMinus(item.quantity,item.totalPrice)" -->
+                  </div>
+                  <div>
+                    <input name="quantity" [value]="item.quantity" disabled #QuantityInput
+                      style="border: 1px solid black;max-width: 30px;text-align: center;" />
+                    <label style="color: #fafafa;">kkkk</label>
+                  </div>
+                  <div>
+                    <input name="quantity" value="+" type="button" (click)="Increase(item.productID,QuantityInput,item)" 
+                    style="border: 1px solid black; max-width: 30px;color: #ff5a00;cursor: pointer;text-align: center" />
+                    <label style="color: #fafafa;">kkkkk</label>
+                    <!-- (click)="calcQuantityPlus(item.quantity,item.totalPrice)" -->
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+
+                <div class="mb-2">{{item.productName}}
+
+                </div>
+
+              </div>
+              <div class="col-md-3">
+                <span class="mb-2" id="item.totalPrice">{{totalPrice+item.totalPrice}}</span>
+              </div>
+
+              <div class="col-md-2">
+                <a style="cursor: pointer;" id="item.id" (click)="removeProduct(item.cartID,i,item.totalPrice)"><i
+                    class="bi bi-dash-circle" style="color: #ff5a00;"></i></a>
+
+              </div>
+            </div>
+
+
+          </div>
+
+          <div class="container">
+
+            <div class="row" *ngIf="ShowProduct.length!=0">
+              <hr width=100%>
+              <div class="col-md-7">
+                <p class="mb-2">Subtotal</p>
+                <p class="mb-2">Delivery fee</p>
+                <p class="mb-2"><b>Total Amount</b></p>
+              </div>
+              <div class="col-md-5">
+                <p class="mb-2">{{subTotal}} EGP</p>
+                <p class="mb-2">{{ShowProduct[0].delivaryFee}} EGP</p>
+                <p class="mb-2">{{subTotal+ShowProduct[0].delivaryFee}} EGP</p>
+              </div>
+            </div>
+          </div>
+          <br>
+          <button *ngIf="ShowProduct.length>0" (click)="makeOrder()" type="button" class="btn btn-secondary text-uppercase btn-checkout"
+            style="text-align:center;width:100% ;">PRODUCT TO CHECKOUT</button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+  </div>
+</section>

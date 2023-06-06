@@ -1,0 +1,82 @@
+<div class="container address-contenr">
+
+  <div>
+    <button (click)="openEmailModal()" type="button" class="btn btn-success mt-4">Add New</button>
+  </div>
+<div class="d-flex ">
+
+  <div class="mt-4 ms-3 address-container ">
+    <div *ngFor="let add of allAddresses.address" >
+     <h2>Address</h2>
+     <div>City Name:   {{add.cityName}}</div>
+     <div>Street Name:   {{add.streetName}}</div>
+     <div>Apartment Number:   {{add.apartmentNo}}</div>
+     <div>Street Name:   {{add.floorNo}}</div>
+     <hr>
+    </div>
+   </div>
+
+  <div class="modal" id="exampleModal" [ngStyle]="{'display':display}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" aria-label="Close"
+                (click)="onCloseEmailHandled()"><span
+                    aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" style="font-size: initial;">Add New Address </h4>
+            </div>
+        <div class="modal-body">
+          <form [formGroup]="addressForm" (ngSubmit)="SubmitData()">
+
+            <div class="mb-3">
+                <p>Address Details</p>
+              </div>
+            <div class="row">
+                <div class="col-6">
+
+
+                      <div class="form-group">
+                        <div class="mb-3" >
+                            <label for="" class="form-label">City</label>
+                            <select class="form-select form-select-lg" formControlName="cityID" name="cityId">
+                                <option *ngFor="let city of CityList" value={{city.id}} (click)="getDistrictByCityId(city.id)">{{city.name}}</option>
+                            </select>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="col-6" >
+                    <div class="form-group">
+                      <div class="mb-3" >
+                          <label for="" class="form-label">Districts</label>
+                          <select class="form-select form-select-lg" formControlName="districtID" name="disID" >
+                              <option *ngFor="let dis of DistrictsList" value={{dis.id}}>{{dis.districtName}}</option>
+                          </select>
+                      </div>
+                  </div>
+
+                  </div>
+            </div>
+            <div class="mb-3">
+              <label for="Street" class="col-form-label">Street</label>
+              <input type="text" class="form-control" id="Street" formControlName="streetName">
+            </div>
+            <div class="mb-3">
+              <label for="Floor" class="col-form-label">Floor</label>
+              <input type="number" class="form-control" id="Floor" formControlName="floorNo">
+            </div>
+            <div class="mb-3">
+                <label for="Apartment" class="col-form-label">Apartment No.</label>
+                <input type="number" class="form-control" id="Apartment" formControlName="apartmentNo">
+              </div>
+              <div class="modal-footer">
+                <button type="submit" id="update" class="btn">SUBMIT</button>
+              </div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</div>
+</div>
